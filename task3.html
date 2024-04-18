@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>让坦克开起来</title>
+		<style type="text/css">
+			input {
+				font-size: 26px;
+				margin-top: 20px;
+			}
+
+			body {
+				background-image: url(img/homework3/grassland.png);
+			}
+
+			#mytank {
+				position: absolute;
+				left: 10px;
+				top: 100px;
+				transition: opacity 0.5s;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="mytank" src="img/homework3/right.png" />
+		<script>
+			// 编写代码，让坦克能上下左右移动
+			var tk = document.getElementById("mytank");
+			window.addEventListener("keydown", function(e){
+							if(e.key === "w" || e.key === "ArrowUp"){
+								tk.style.opacity = 0; // 隐藏当前图片
+								setTimeout(function(){
+									tk.src = "img/homework3/up.png"; // 更改图片src
+									tk.style.opacity = 1; // 显示新图片
+								}, 500); // 延迟0.5秒执行
+							}
+							if(e.key === "s" || e.key === "ArrowDown"){
+								tk.style.opacity = 0;
+								setTimeout(function(){
+									tk.src = "img/homework3/down.png";
+									tk.style.opacity = 1;
+								}, 500);
+							}
+							if(e.key === "a" || e.key === "ArrowLeft"){
+								tk.style.opacity = 0;
+								setTimeout(function(){
+									tk.src = "img/homework3/left.png";
+									tk.style.opacity = 1;
+								}, 500);
+							}
+							if(e.key === "d" || e.key === "ArrowRight"){
+								tk.style.opacity = 0;
+								setTimeout(function(){
+									tk.src = "img/homework3/right.png";
+									tk.style.opacity = 1;
+								}, 500);
+							}
+						});
+		</script>
+	</body>
+</html>
