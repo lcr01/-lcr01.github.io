@@ -17,45 +17,56 @@
 				position: absolute;
 				left: 10px;
 				top: 100px;
-				transition: opacity 0.5s;
 			}
 		</style>
 	</head>
 	<body>
 		<img id="mytank" src="img/homework3/right.png" />
 		<script>
+			alert("使用wasd或上下左右移动坦克");
 			// 编写代码，让坦克能上下左右移动
 			var tk = document.getElementById("mytank");
-			window.addEventListener("keydown", function(e){
-							if(e.key === "w" || e.key === "ArrowUp"){
-								tk.style.opacity = 0; // 隐藏当前图片
-								setTimeout(function(){
-									tk.src = "img/homework3/up.png"; // 更改图片src
-									tk.style.opacity = 1; // 显示新图片
-								}, 500); // 延迟0.5秒执行
-							}
-							if(e.key === "s" || e.key === "ArrowDown"){
-								tk.style.opacity = 0;
-								setTimeout(function(){
-									tk.src = "img/homework3/down.png";
-									tk.style.opacity = 1;
-								}, 500);
-							}
-							if(e.key === "a" || e.key === "ArrowLeft"){
-								tk.style.opacity = 0;
-								setTimeout(function(){
-									tk.src = "img/homework3/left.png";
-									tk.style.opacity = 1;
-								}, 500);
-							}
-							if(e.key === "d" || e.key === "ArrowRight"){
-								tk.style.opacity = 0;
-								setTimeout(function(){
-									tk.src = "img/homework3/right.png";
-									tk.style.opacity = 1;
-								}, 500);
-							}
-						});
+			// 坦克的初始位置
+			var L = 10;
+			var T = 100;
+			
+			window.addEventListener("keydown", function(e) {
+				//上移
+				if (e.key === "w" || e.key === "ArrowUp") {
+					tk.src = "img/homework3/up.png";
+					
+					if (T - 10 >= 0) {
+						T = T - 10;
+						tk.style.top = T + "px";
+					}
+				}
+				//下移
+				if (e.key === "s" || e.key === "ArrowDown") {
+					tk.src = "img/homework3/down.png";
+					
+					if (T + 10 <= window.innerHeight - 50) {
+						T = T + 10;
+						tk.style.top = T + "px";
+					}
+				}
+				//左移
+				if (e.key === "a" || e.key === "ArrowLeft") {
+					tk.src = "img/homework3/left.png";
+					if (L - 10 >= 0) {
+						L = L - 10;
+						tk.style.left = L + "px";
+					}
+				}
+				//右移
+				if (e.key === "d" || e.key === "ArrowRight") {
+					tk.src = "img/homework3/right.png";
+			
+					if (L + 10 <= window.innerWidth - 50) {
+						L = L + 10;
+						tk.style.left = L + "px";
+					}
+				}
+			});
 		</script>
 	</body>
 </html>
