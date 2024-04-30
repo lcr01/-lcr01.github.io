@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#bo{
+				width: 100%;
+			}
+			#lad{
+				background: greenyellow;
+				position: fixed;
+				left: 0px;
+				top: 0px;
+				height: 738px;
+				width: 15%;
+			}
+			#rad{
+				background: greenyellow;
+				position: fixed;
+				right: 0px;
+				top: 0px;
+				height: 738px;
+				width: 15%;
+			}
+			#content{
+				height: 2214px;
+				background: bisque;	
+				width: 70%;
+				margin-top: 0px;
+				margin: auto;
+			}
+			#ltad{
+				position: fixed;
+				right: 0px;
+				/* bottom: -100px; */
+				background: yellow;
+				width: 300px;
+				height: 200px;
+			}
+			
+			img{
+				width: 100%;
+			}
+			.dl{
+				position: absolute;
+				width: 3em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bo">
+			<!-- 左广告 -->
+			<div id="lad">
+				<div onclick="clol()">
+					<img src="img/shiyan4/close.png" class="dl">
+				</div>
+				<!-- <p onclick="clol()">关闭</p> -->
+				<img src="img/shiyan4/ad1.jpg"/>
+			</div>
+			<!-- 中间内容 -->
+			<div id="content">222</div>
+			<!-- 右广告 -->
+			<div id="rad">
+				<div onclick="clor()">
+					<img src="img/shiyan4/close.png" class="dl">
+				</div>
+				<img src="img/shiyan4/ad1.jpg"/>
+			</div>
+		</div>
+		<!-- 弹窗广告 -->
+		<div id="ltad">
+			<!-- 关闭按钮 -->
+			<div onclick="clot()">			
+				<img src="img/shiyan4/close.png" class="dl">
+			</div>
+			<img src="img/shiyan4/ad2.jpg" style="height: 100%;"/>
+		</div>
+	</body>
+	<script>
+		var ltad = document.getElementById("ltad");
+		//定义
+		ltad.style.bottom = -200 + "px";
+		//让广告缓慢上升				
+		function ad (){
+			T = parseInt(ltad.style.bottom) 
+			if(parseInt(ltad.style.bottom) < 0){
+				T = T + 20;
+				ltad.style.bottom = T + "px";
+			}
+			setTimeout("ad()",200);
+		}
+		ad();
+		//关闭左广告
+		function clol(){
+			let lad = document.getElementById("lad");
+			lad.style.display = "none";
+		}
+		//关闭右广告
+		function clor(){
+			let rad = document.getElementById("rad");
+			rad.style.display = "none";
+		}
+		//关闭弹窗广告
+		function clot(){
+			let ltad = document.getElementById("ltad");
+			ltad.style.display = "none";
+		}
+	</script>
+</html>
