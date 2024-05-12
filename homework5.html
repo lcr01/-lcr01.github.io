@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Game Character Control</title>
+<style>
+	body{
+		background: #000;
+	}
+    #character {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+</head>
+<body>
+
+<div id="character">
+	<img src="img/homework5/player_right.gif"/>
+</div>
+<!-- 219971118刘赐荣 -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    var $character = $('#character');
+    var isRunning = false;
+	var $characterImg = $('#character img');
+    // 鼠标控制角色移动
+   $(document).ready(function() {   
+       // 点击鼠标移动角色
+       $(document).click(function(e) {
+           var characterX = $character.offset().left + $character.width() / 2;
+			if(isRunning==false){
+				if (e.clientX < characterX) {
+				   $characterImg.attr('src', 'img/homework5/player_left.gif');
+			   } else {
+				   $characterImg.attr('src', 'img/homework5/player_right.gif');
+			   }
+			}else{
+				if (e.clientX < characterX) {
+					$characterImg.attr('src', 'img/homework5/playerbig_left.gif');
+				} else {
+					 $characterImg.attr('src', 'img/homework5/playerbig_right.gif');
+				}
+			}
+              
+           $character.stop().animate({
+               top: e.clientY - $character.height() / 2,
+               left: e.clientX - $character.width() / 2
+           }, 500); // 500ms 内移动到点击位置
+       });
+   });
+
+    // 键盘控制角色跑动
+    $(document).keydown(function(e) {
+        if (e.keyCode === 37) { // 左箭头键
+            $character.animate({left: '-=10'}, 50);
+        } else if (e.keyCode === 39) { // 右箭头键
+            $character.animate({left: '+=10'}, 50);
+        }
+    });
+
+    // 双击角色变身
+    $character.dblclick(function() {
+        if (isRunning) {
+            $characterImg.attr('src', 'img/homework5/playerbig_right.gif');
+            isRunning = false;
+        } else {
+            $characterImg.attr('src', 'img/homework5/player_right.gif');
+            isRunning = true;
+        }
+    });
+});
+</script>
+
+</body>
+</html>
