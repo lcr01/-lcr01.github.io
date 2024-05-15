@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全屏轮播图</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #333;
+				font-family: Arial, sans-serif;
+				
+			}
+
+			.carousel {
+				position: relative;
+				width: 100%;
+				height: 100vh;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			.carousel-item {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100vh;
+				opacity: 0;
+				transition: opacity 1s linear;
+				background-repeat: no-repeat;
+			}
+
+			.carousel-item.active {
+				opacity: 1;
+			}
+
+			.carousel-text {
+				position: absolute;
+				left: 50%;
+				top: 30%;
+				transform: translateX(-50%);
+				width: 80%;
+				padding: 20px;
+				background-color: rgba(0, 0, 0, 0.6);
+				color: #fff;
+				text-align: center;
+				font-size: 2.5rem;
+				line-height: 1.5;
+				border-radius: 10px;
+			}
+
+			.carousel-nav {
+				position: absolute;
+				left: 50%;
+				bottom: 10%;
+				transform: translateX(-50%);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				z-index: 99;
+			}
+
+			.carousel-nav button {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				border: none;
+				margin: 0 10px;
+				background-color: #fff;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.carousel-nav button.active {
+				width: 20px;
+				background-color: #ffcc33;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div class="carousel">
+			<div class="carousel-item active"
+				style="background-image: url('img/task6/1.jpg'); background-size: 100% auto;">
+				<div class="carousel-text">Picture 1</div>
+			</div>
+			<div class="carousel-item" style="background-image: url('img/task6/2.jpg'); background-size: 100% auto;">
+				<div class="carousel-text">Picture 2</div>
+			</div>
+			<div class="carousel-item" style="background-image: url('img/task6/3.jpg'); background-size: 100% auto;">
+				<div class="carousel-text">Picture 3</div>
+			</div>
+			<div class="carousel-item" style="background-image: url('img/task6/4.jpg'); background-size: 100% auto;">
+				<div class="carousel-text">Picture 4</div>
+			</div>
+			<div class="carousel-nav">
+				<button class="active"></button>
+				<button></button>
+				<button></button>
+				<button></button>
+			</div>
+		</div>
+
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/scroll.js">
+		</script>
+	</body>
+	<!-- 219971118刘赐荣 -->
+</html>
